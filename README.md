@@ -1,57 +1,54 @@
 Vector and Matrix Operations in Python
 
-A Python implementation of basic vector and matrix operations, including addition, subtraction, multiplication, transpose, determinant, inverse, and LU decomposition.
+A simple Python implementation of vector and matrix operations: addition, subtraction, multiplication, transpose, determinant, inverse, and LU decomposition.
 
 Features
 Vector Operations
+-
 
-Addition: v1 + v2
 
-Subtraction: v1 - v2
+Addition: v1 + v2 → element-wise addition
 
-Dot product: v1.dot(v2)
+Subtraction: v1 - v2 → element-wise subtraction
 
-Norm (magnitude): v1.norm()
+Dot Product: v1.dot(v2) → computes the dot product
 
-String representation: repr(v1)
+Norm: v1.norm() → Euclidean magnitude of the vector
+
+Representation: repr(v1) → readable vector format
 
 Matrix Operations
 
-Addition: m1 + m2
+Addition: m1 + m2 → element-wise addition
 
-Subtraction: m1 - m2
+Subtraction: m1 - m2 → element-wise subtraction
 
-Multiplication:
+Multiplication: m1 * m2 → matrix × matrix or matrix × scalar
 
-Matrix × Matrix
+Transpose: m.transpose() → returns transposed matrix
 
-Matrix × Scalar
+Determinant: m.determinant() → only for square matrices
 
-Transpose: m.transpose()
+Inverse: m.inverse() → only for square, non-singular matrices
 
-Determinant: m.determinant()
+LU Decomposition: L, U = m.lu_decomposition() → returns L (lower) and U (upper) matrices
 
-Inverse: m.inverse()
-
-LU Decomposition: m.lu_decomposition() (returns L and U matrices)
-
-String representation: repr(m)
+Representation: repr(m) → readable matrix format
 
 Installation
 
-No external libraries are required except Python's standard math module. Compatible with Python 3.6+.
-
-Usage Example
+No external dependencies, only Python’s standard math module.
+Compatible with Python 3.6+.
 from vector_matrix import Vector, Matrix
 
-# Vector operations
+# Vector examples
 v1 = Vector([1, 2, 3])
 v2 = Vector([4, 5, 6])
 print("v1 + v2 =", v1 + v2)
 print("v1 . v2 =", v1.dot(v2))
 print("||v1|| =", v1.norm())
 
-# Matrix operations
+# Matrix examples
 m1 = Matrix([[1, 2], [3, 4]])
 m2 = Matrix([[5, 6], [7, 8]])
 print("m1 + m2 =", m1 + m2)
@@ -63,19 +60,14 @@ L, U = m1.lu_decomposition()
 print("L =", L)
 print("U =", U)
 
-Implementation Details
+Notes
+-
 
-Vector: Supports basic linear algebra operations.
+1)Determinant and inverse are computed via recursive cofactor expansion — slow for large matrices.
 
-Matrix:
+2)LU decomposition uses Doolittle’s method, more efficient for larger matrices.
 
-Determinant uses a recursive cofactor expansion (suitable for small matrices).
-
-Inverse uses the cofactor and adjugate method.
-
-LU decomposition uses Doolittle’s algorithm (L has unit diagonal).
-
-⚠️ Note: For large matrices, determinant and inverse computations may be slow due to recursive algorithms. LU decomposition is recommended for efficiency.
+3)Ideal for learning and small-to-medium matrix operations.
 
 License
 
